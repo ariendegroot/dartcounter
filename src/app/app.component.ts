@@ -10,8 +10,8 @@ import { Game, Stats } from './game.model';
 
 export class AppComponent implements OnInit {
   
-  currentGamePlayer1 = new Game({});
-  currentGamePlayer2 = new Game({});
+  currentGamePlayer1 = new Game();
+  currentGamePlayer2 = new Game();
   
   currentGameStats = new Stats(0,0);
   

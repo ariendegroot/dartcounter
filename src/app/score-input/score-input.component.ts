@@ -8,16 +8,16 @@ import { Game, Stats } from '../game.model';
   styleUrls: ['./score-input.component.css']
 })
 export class ScoreInputComponent implements OnInit {
-  // @Input() player1: Game;
-  // @Input() player2: Game;
-  // @Input() gameStats: Stats;
+  @Input() player1: Game;
+  @Input() player2: Game;
+  @Input() gameStats: Stats;
 
-  // currentPlayer: Game;
+  currentPlayer: Game;
   
-  // @Output() 
-  // inputEvent: EventEmitter<any> = new EventEmitter();
-  // @Output()
-  // inputEvent2: EventEmitter<any> = new EventEmitter();
+  @Output() 
+  inputEvent: EventEmitter<any> = new EventEmitter();
+  @Output()
+  inputEvent2: EventEmitter<any> = new EventEmitter();
 
   constructor() {
    
@@ -26,50 +26,50 @@ export class ScoreInputComponent implements OnInit {
   ngOnInit() {
   }
 
-  // onInputScore(score: number){
-  //   if(this.player1.throwing === true) {
-  //     this.currentPlayer = this.player1;
-  //   } else {
-  //     this.currentPlayer = this.player2;
-  //   } 
-  //     //Calculate remainingscore
-  //     this.currentPlayer.remaining = this.currentPlayer.remaining - score;
-  //     //Push score to current leg scores
-  //     this.currentPlayer.scores.push(score);
-  //     //Calculate number of darts thrown  
-  //     this.currentPlayer.dartsThrown = this.currentPlayer.scores.length * 3;
+  onInputScore(score: number){
+    if(this.player1.throwing === true) {
+      this.currentPlayer = this.player1;
+    } else {
+      this.currentPlayer = this.player2;
+    } 
+      //Calculate remainingscore
+      this.currentPlayer.remaining = this.currentPlayer.remaining - score;
+      //Push score to current leg scores
+      this.currentPlayer.scores.push(score);
+      //Calculate number of darts thrown  
+      this.currentPlayer.dartsThrown = this.currentPlayer.scores.length * 3;
 
-  //     this.player1.throwing = !this.player1.throwing;
+      this.player1.throwing = !this.player1.throwing;
 
-  //     //Reset gameScore
-  //     if(this.currentPlayer.remaining <= 0) {
-  //       this.endGame(); 
-  //     }
-  //     document.getElementById("scoreInput").value = null;
-  //     document.getElementById("scoreInput").focus();
+      //Reset gameScore
+      if(this.currentPlayer.remaining <= 0) {
+        this.endGame(); 
+      }
+      document.getElementById("scoreInput").value = 0;
+      document.getElementById("scoreInput").focus();
 
 
-  // }
+  }
 
-  // endGame() {
-  //   alert('Game ended, starting new game');
-  //   if(this.player1.remaining <= 0) {
-  //     this.gameStats.gamesWonP1++;
-  //   } else {
-  //     this.gameStats.gamesWonP2++;
-  //   }
+  endGame() {
+    alert('Game ended, starting new game');
+    if(this.player1.remaining <= 0) {
+      this.gameStats.gamesWonP1++;
+    } else {
+      this.gameStats.gamesWonP2++;
+    }
     
-  //   if(this.player1.scores.length >= this.player2.scores.length && this.player1.remaining < this.player2.remaining ) {
-  //     this.player1 = new Game();
-  //     this.player2 = new Game();
-  //   } else { 
-  //     this.player1 = new Game();
-  //     this.player2 = new Game();
-  //    }
+    if(this.player1.scores.length >= this.player2.scores.length && this.player1.remaining < this.player2.remaining ) {
+      this.player1 = new Game();
+      this.player2 = new Game();
+    } else { 
+      this.player1 = new Game();
+      this.player2 = new Game();
+     }
 
 
-  //    this.inputEvent.emit(this.player1);
-  //    this.inputEvent2.emit(this.player2);
-  // }
+     this.inputEvent.emit(this.player1);
+     this.inputEvent2.emit(this.player2);
+  }
 
 }

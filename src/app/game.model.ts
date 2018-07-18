@@ -1,16 +1,12 @@
-export interface Player  {
-    id?: {
-        name?: string,
-        scores?: number,
-        throwing?: boolean,
-        remaining?: number
-        dartsThrown?: number,
-        gamesWon?: number
-    };
-}
-
 export class Game {
-    constructor(event: Player) {
+    public score: number;
+    public remaining: number = 501;
+    public scores: number[] = [];
+    public dartsThrown: number;
+    public throwing: boolean; 
+
+      
+    constructor(score: number = 0, remaining: number = 501,  scores: number[] = [], throwing?: boolean, dartsThrown: number = 0) {
     }
 }
 
