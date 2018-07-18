@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Game } from '../game.model';
 
 @Component({
   selector: 'app-remaining-score',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./remaining-score.component.css']
 })
 export class RemainingScoreComponent implements OnInit {
+  @Input() player1: Game;
+  @Input() player2: Game;
 
   constructor() { }
 

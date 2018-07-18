@@ -1,70 +1,25 @@
 <div class="container">
 
-<input 
-  type="number"
-  class="score__input"
-  id="scoreInput"
-  #scoreInput
-  value="0"
-  [(ngModel)]="currentGamePlayer1.score"
-  [ngClass]="currentGamePlayer1.throwing ? 'show' : 'hide'"
->
-<button
-  type="button"
-  class="score__button"
-  (click)="onInputScore()"
-  [ngClass]="currentGamePlayer1.throwing ? 'show' : 'hide'"
+<app-score-input
+  [player1]="currentGamePlayer1"
+  [player2]="currentGamePlayer2"
+  [gameStats]="currentGameStats"
+  (inputEvent)="handleScore($event)"
+  (inputEvent2)="handleScore2($event)"
+  > 
+</app-score-input>
+
+<app-remaining-score
+  [player1]="currentGamePlayer1"
+  [player2]="currentGamePlayer2"
   >
+</app-remaining-score>
+
+<app-stats
+  [scoresP1]="currentGamePlayer1"
+  [scoresP2]="currentGamePlayer2"
+  [gameStats]="currentGameStats"
   >
-</button>
+</app-stats>
 
-<input 
-  type="number"
-  class="score__input"
-  id="scoreInputP2"
-  value="0"
-  [(ngModel)]="currentGamePlayer2.score"
-  [ngClass]="currentGamePlayer2.throwing ? 'show' : 'hide'"
->
-
-<button
-  type="button"
-  class="score__button"
-  (click)="onInputScoreP2()"
-  [ngClass]="currentGamePlayer2.throwing ? 'show' : 'hide'"
-  >
-  >
-</button>
-
-<div class="scores">
-  <div>
-    <h2>Player 1 <span *ngIf="currentGamePlayer1.throwing">*</span></h2> 
-    <ul
-      class="scorelist">
-    <li 
-      *ngFor="let roundP1 of currentGamePlayer1.scores" 
-      class="scores__player1">
-      {{ roundP1 }}
-    </li>
-    </ul>
-  </div>
-  <div>
-      <h2>Player 2 <span *ngIf="currentGamePlayer2.throwing">*</span></h2> 
-      <ul
-        class="scorelist">
-      <li 
-        *ngFor="let roundP2 of currentGamePlayer2.scores" 
-        class="scores__player2">
-        {{ roundP2 }}
-      </li>
-      </ul>
-    </div>
-</div>
-
-<div class="remainingscore">
-    <p> {{ currentGamePlayer1.remaining }}</p>
-    <p> {{ currentGamePlayer2.remaining }}</p>
-</div>
-
-<app-stats></app-stats>
 </div>

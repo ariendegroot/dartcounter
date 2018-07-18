@@ -1,17 +1,25 @@
-export class Game {
-    public remaining: number = 501;
-    public score: number;
-    public scores: number[] = [];
-    public dartsThrown: number;
-    public average: number;
-    public throwing: boolean; 
+export interface Player  {
+    id?: {
+        name?: string,
+        scores?: number,
+        throwing?: boolean,
+        remaining?: number
+        dartsThrown?: number,
+        gamesWon?: number
+    };
+}
 
-    constructor(throwing: boolean, score?: number, remaining?: number, scores?: number[], dartsThrown?: number, average?: number) {
-        this.score = score;
-        this.remaining = remaining;
-        this.scores = scores;
-        this.dartsThrown = 0;
-        this.average = average;
-        this.throwing = throwing;
+export class Game {
+    constructor(event: Player) {
+    }
+}
+
+export class Stats {
+    public gamesWonP1: number;
+    public gamesWonP2: number;
+    
+    constructor(gamesWonP1: number, gamesWonP2: number) {
+        this.gamesWonP1 = gamesWonP1;
+        this.gamesWonP2 = gamesWonP2;
     }
 }

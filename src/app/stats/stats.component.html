@@ -1,11 +1,17 @@
 <div class="stats">
     <div class="player1">
-        <p>Darts: {{ currentGamePlayer1.dartsThrown }}</p>
-        <p>Avg: {{ currentGamePlayer1.average }}</p>
+        <p>Darts thrown: {{ scoresP1.dartsThrown }}</p>
     </div>
     <div class="player2">
-        <p>Darts: {{ currentGamePlayer2.dartsThrown }}</p>
-        <p>Avg: {{ currentGamePlayer2.average }}</p>
+        <p>Darts thrown: {{ scoresP2.dartsThrown }}</p>
     </div>
-    
+</div>
+
+<div class="stats">
+    <div class="player1">
+        <p>Games Won P1: {{ gameStats.gamesWonP1 }}</p>
+    </div>
+    <div class="player2">
+        <p>Games Won P1: {{ gameStats.gamesWonP2 }}</p>
+    </div>
 </div>
