@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    max-width: 320px;
+    margin: 0 auto;
+    background: #eee;
+}
+
+.score {
+    &__input {
+        width: calc( 100% - 80px );
+        padding: 10px 20px;
+        box-sizing: border-box;
+        color: #666;
+        font-size: 1.5em;
+        height: 52px;
+    }
+    &__button {
+        width: 75px;
+        padding: 10px 20px;
+        background: green;
+        border: none; 
+        color: white;
+        font-weight: bold;
+        height: 52px;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+}
+
+.scores {
+    display: flex;
+    width: 100%;
+    > div {
+        width: 50%;
+    }
+    .scorelist {
+        margin: 0;
+        padding: 0;
+        list-style-type:  none;
+    }
+}
+
+.remainingscore {
+    display: flex;
+    p {
+        width: 50%;
+        text-align: center;
+        font-size: 2em;
+        background: white;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.stats {
+    display: flex;
+    > div {
+        width: 50%;
+    }
+}
