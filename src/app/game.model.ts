@@ -1,12 +1,15 @@
 export class Game {
+    public throwing: boolean; 
     public score: number;
     public remaining: number = 501;
     public scores: number[] = [];
     public dartsThrown: number;
-    public throwing: boolean; 
-
-      
-    constructor(score: number = 0, remaining: number = 501,  scores: number[] = [], throwing?: boolean, dartsThrown: number = 0) {
+    constructor(throwing?: boolean, score: number = 0, remaining: number = 501,  scores: number[] = [], dartsThrown: number = 0) {
+        this.throwing = throwing;
+        this.score = score;
+        this.remaining = remaining;
+        this.scores = scores;
+        this.dartsThrown = dartsThrown; 
     }
 }
 

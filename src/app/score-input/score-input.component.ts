@@ -24,9 +24,14 @@ export class ScoreInputComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.player1.throwing = true;
   }
 
   onInputScore(score: number){
+    if(score > 180) {
+      (<HTMLInputElement>document.getElementById("scoreInput")).value = null;
+      return;
+    }
     if(this.player1.throwing === true) {
       this.currentPlayer = this.player1;
     } else {
@@ -37,7 +42,7 @@ export class ScoreInputComponent implements OnInit {
       //Push score to current leg scores
       this.currentPlayer.scores.push(score);
       //Calculate number of darts thrown  
-      this.currentPlayer.dartsThrown = this.currentPlayer.scores.length * 3;
+      this.currentPlayer.dartsThrown = this.currentPlayer. scores.length * 3;
 
       this.player1.throwing = !this.player1.throwing;
 
@@ -45,11 +50,9 @@ export class ScoreInputComponent implements OnInit {
       if(this.currentPlayer.remaining <= 0) {
         this.endGame(); 
       }
-      document.getElementById("scoreInput").value = 0;
+      (<HTMLInputElement>document.getElementById("scoreInput")).value = null;
       document.getElementById("scoreInput").focus();
-
-
-  }
+   }
 
   endGame() {
     alert('Game ended, starting new game');
@@ -60,16 +63,17 @@ export class ScoreInputComponent implements OnInit {
     }
     
     if(this.player1.scores.length >= this.player2.scores.length && this.player1.remaining < this.player2.remaining ) {
-      this.player1 = new Game();
-      this.player2 = new Game();
+      this.player1.throwing = true;
     } else { 
-      this.player1 = new Game();
-      this.player2 = new Game();
-     }
+      this.player1.throwing = false;
+    }
 
-
+    //Start new game
+     this.player1 = new Game();
+     this.player2 = new Game();
      this.inputEvent.emit(this.player1);
      this.inputEvent2.emit(this.player2);
+     
   }
 
 }

@@ -10,7 +10,7 @@ import { Game, Stats } from './game.model';
 
 export class AppComponent implements OnInit {
   
-  currentGamePlayer1 = new Game();
+  currentGamePlayer1 = new Game(true);
   currentGamePlayer2 = new Game();
   
   currentGameStats = new Stats(0,0);
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     this.currentGamePlayer1 = Object.assign({}, this.currentGamePlayer1, event);
   }
 
-  handleScore2(event) {
+  handleScore2(event: Game) {
     this.currentGamePlayer2 = Object.assign({}, this.currentGamePlayer2, event);
   }
 
