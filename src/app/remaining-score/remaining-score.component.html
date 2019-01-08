@@ -1,3 +1,28 @@
-<p>
-  remaining-score works!
-</p>
+<div class="scores">
+  <div>
+    <h2>Player 1 <span *ngIf="player1.throwing">*</span></h2> 
+    <ul
+      class="scorelist">
+    <li 
+      *ngFor="let roundP1 of player1.scores" 
+      class="scores__player1">
+      {{ roundP1 }}
+    </li>
+    </ul>
+  </div>
+  <div>
+      <h2>Player 2 <span *ngIf="!player1.throwing">*</span></h2> 
+      <ul
+        class="scorelist">
+      <li 
+        *ngFor="let roundP2 of player2.scores" 
+        class="scores__player2">
+        {{ roundP2 }} 
+      </li>
+      </ul> 
+    </div>
+</div>
+<div class="remainingscore">
+  <p> {{ player1.remaining }}</p>
+  <p> {{ player2.remaining }}</p>
+</div>

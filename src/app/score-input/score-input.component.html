@@ -1,3 +1,16 @@
-<p>
-  score-input works!
-</p>
+<input 
+  type="number"
+  class="score__input"
+  id="scoreInput"
+  max="180"
+  #scoreInput
+  (keyup.enter)="onInputScore(scoreInput.value)"
+>
+
+<button
+  type="button"
+  class="score__button"
+  (click)="onInputScore(scoreInput.value)"
+  >
+  >
+</button>
